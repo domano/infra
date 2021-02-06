@@ -2,8 +2,9 @@
 
 To my future self: Just follow this guide to set up your servers.
 
-## First steps
+# Initial setup
 
+## SSH
 ### Copy public key
 Copy ssh public keys to your new server.
 
@@ -21,7 +22,18 @@ In `/etc/ssh/sshd_config` uncomment the following line
 Restart ssh via
 `service ssh restart`
 
-### Install k3s
+## Updates
+
+### Autoupdate
+
+## Install unattended-upgrades
+Install `sudo apt-get install unattended-upgrades` for automatic upgrades. If already installed configure via `sudo dpkg-reconfigure -plow unattended-upgrades` and enable updates.
+
+## Configure unattended-upgrades
+Overwrite the content of `/etc/apt/apt.config.d/50unattended-upgraded` with the [provided file](config/50unattended-upgrades) 
+
+
+## Install k3s and join the cluster
 
 Install k3sup locally via `brew install k3sup`
 
